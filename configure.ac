@@ -301,6 +301,9 @@ if test "x$build" = "x$target"; then
     x86_64|amd64)
       PRECOMPILED_ARCH=x86_64
       ;;
+    aarch64)
+      PRECOMPILED_ARCH=aarch64
+      ;;
     *)
       AC_MSG_ERROR([the compiler is not precompiled for target_cpu $target_cpu.])
       ;;
@@ -319,10 +322,10 @@ case "$target_cpu" in
     RUNTIME_DEFS="$RUNTIME_DEFS -DHOST_CPU_i386"
     LLCFLAGS="$LLCFLAGS -no-x86-call-frame-opt"
     ;;
-  x86_64|amd64)
+  x86_64|amd64|aarch64)
     AC_MSG_RESULT([yes])
-    RUNTIME_DEFS="$RUNTIME_DEFS -DHOST_CPU_i386"
-    LLCFLAGS="$LLCFLAGS -no-x86-call-frame-opt"
+    RUNTIME_DEFS="$RUNTIME_DEFS -DHOST_CPU_AARCH64"
+    LLCFLAGS="$LLCFLAGS"
     ;;
   *)
     AC_MSG_RESULT([no])
