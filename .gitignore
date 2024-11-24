@@ -37,3 +37,6 @@
 /src/smlformat/smlformat
 /stamp-h
 /tests/driver/dotest
+
+# for direnv
+.envrc
